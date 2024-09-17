@@ -1,0 +1,49 @@
+@page "/aprende_mas"
+
+<PageTitle>Aprende Mas</PageTitle>
+
+<h1>Aprende Mas</h1>
+
+<p>Aca podra visualizar videos de aprendizaje con Blazor</p>
+
+<div class="row"> 
+
+    @foreach (var video in videos)
+    {
+        <div class="col-md-3">
+            <div class="card" >
+                <img class="card-img-top" src="https://i.ytimg.com/vi/@video.Url/hq720.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Video</h5>
+                    <p class="card-text">@video.Titulo</p>
+                    <a href="https://www.youtube.com/watch?v=@video.Url" target="_blank"
+                     class="btn btn-primary">Ver video</a>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+
+</div>
+
+@code{
+
+
+    class Video{
+        public required string Titulo { get; set; }
+        public required string Url { get; set; }
+    }
+
+
+    List<Video> videos = new List<Video>{
+        new Video{Titulo = "¿Qué diablos es Blazor?, este video es una muestra rapida de lo que es blazor", Url = "https://youtu.be/ktDj2xD-H9s?si=ydfkgWut4JG8bJ8W"},
+        new Video{Titulo = ".Net 8 y Blazor - ToDo App, este video me gusta mucho porque muestra como hacer una aplicacion con blazor de manera facil y sencilla", Url = "https://youtu.be/x93mZi6JFAo?si=6QAHxkJyXThw0VjQ"},
+        new Video{Titulo = "¿Cómo agregar Radzen a tus aplicaciones Blazor para que se vean profesionales?, en este video se puede aprender agregar librerias en blazor y en esta muestra una muy buena", Url = "https://youtu.be/IpdqFj8t6z4?si=2ZChqLds0HdpVAmf"},
+        new Video{Titulo = "Crear CRUD en Blazor y ASP.NET WEB API aqui muestra como hacer un crud de manera facil", Url = "https://youtu.be/NOJveObsX0Q?si=N_DEXwVkaat3p68o"},
+        new Video{Titulo = "Blazor Server y Web Assembly - Introducción, este es un video de introduccion para trabajar con blazor, me gusta mucho porque lo explica mas detallado que en otros videos", Url = "https://youtu.be/Ln7MUQk6voA?si=l0hz7udqBBLGZyNJ"},
+    };
+
+
+}
